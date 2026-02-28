@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Людмила & Венелин - 15.08.2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Montserrat',sans-serif; background:#e9faf6; color:#2f4f4f; text-align:center; }
+.hero { height:100vh; background:url('087E3152-6B55-4BCE-859D-D5DEFCE51382.jpeg') center/cover no-repeat; display:flex; align-items:center; justify-content:center; position:relative; }
+.overlay { background:rgba(0,0,0,0.45); position:absolute; top:0; left:0; right:0; bottom:0; }
+.hero-content { position:relative; color:white; }
+h1 { font-family:'Great Vibes',cursive; font-size:60px; margin:0; }
+.date { font-size:22px; margin:10px 0; }
+.countdown { font-size:28px; margin:20px 0; }
+.details { background:white; padding:30px 20px; margin:0 auto; max-width:600px; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.1); }
+.button { display:inline-block; padding:14px 30px; background-color:#7fcac3; color:white; text-decoration:none; border-radius:30px; font-size:18px; transition:0.3s; margin-top:20px; }
+.button:hover { background-color:#5fb3aa; }
+.map-container { margin:40px 0; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Людмила & Венелин</h1>
+    <div class="date">15.08.2026 г. - с. Громшин</div>
+    <div class="countdown" id="countdown"></div>
+  </div>
+</div>
+
+<div class="details">
+  <p>Кумове: Матилде и Мирослав</p>
+  <a class="button" href="mailto:example@email.com?subject=Потвърждение за сватба">Потвърди присъствие</a>
+</div>
+
+<div class="map-container">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2930.000000!2d23.0000!3d42.0000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDIwJzAwLjAiTiAyM8KwMDAnMDAuMCJF!5e0!3m2!1sen!2sbg!4v1690000000000!5m2!1sen!2sbg" 
+    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+<script>
+// Брояч
+const countdown = () => {
+  const countDate = new Date("August 15, 2026 20:00:00").getTime();
+  const now = new Date().getTime();
+  const gap = countDate - now;
+
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  const d = Math.floor(gap / day);
+  const h = Math.floor((gap % day) / hour);
+  const m = Math.floor((gap % hour) / minute);
+
+  document.getElementById('countdown').innerHTML = `${d} дни ${h} часа ${m} минути`;
+};
+setInterval(countdown, 1000);
+countdown();
+</script>
+
+</body>
+</html>
